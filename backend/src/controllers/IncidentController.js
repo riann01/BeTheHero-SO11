@@ -6,7 +6,7 @@ module.exports = {
         const { page = 1 } = request.query;
 
         const incidents = await connection('INCIDENTS')
-        .join('ONGS', 'ong_id', '=', 'INCIDENTS.ong_id')
+        .join('ONGS', 'ONGS.id', '=', 'INCIDENTS.ong_id')
         .limit(5)
         .offset((page - 1) * 5).
         select([
